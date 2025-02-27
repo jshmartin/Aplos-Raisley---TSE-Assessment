@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TSE Assessment - Customer Registration Form</title>
+    <style>
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .input-field {
+        margin: 10px 0;
+        padding: 8px;
+        border: 1px solid #ccc;
+      }
+
+      div.form-container form .input-field {
+        border: 2px solid red;
+      }
+
+      .submit-button {
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
+
+      div.form-container {
+        display: block;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        .submit-button {
+          background-color: #007bff;
+          color: #007bff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <form id="registrationForm">
+        <input type="text" class="input-field" placeholder="Name" required />
+        <input type="email" class="input-field" placeholder="Email" required />
+        <button type="submit" class="submit-button">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("registrationForm");
+      form.onsubmit = function () {
+        validateForm();
+      };
+
+      function validateForm() {
+        const inputs = document.querySelectorAll(".input-field");
+        let isValid = true;
+
+        inputs.forEach((input) => {
+          if (!input.value.trim()) {
+            isValid = false;
+          }
+        });
+
+        if (isValid) {
+          console.log("Form submitted");
+        }
+      }
+    </script>
+  </body>
+</html>
